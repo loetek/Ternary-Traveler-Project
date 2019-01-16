@@ -1,0 +1,69 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "name": "San Jose",
+      "visa_required": true
+    },
+    {
+      "id": 2,
+      "name": "Panama City",
+      "visa_required": false
+    },
+    {
+      "id": 3,
+      "name": "San Salvador",
+      "visa_required": true
+    }
+  ],
+  "interests": [
+    {
+      "id": 1,
+      "placeId": 1,
+      "name": "Local Market",
+      "description": "Local market where you can try purchase local products and try the local food",
+      "cost": 0,
+      "review": ""
+    },
+    {
+      "id": 2,
+      "placeId": 1,
+      "name": "SPA",
+      "description": "Local market where you can try purchase local products and try the local food",
+      "cost": 0,
+      "review": ""
+    },
+    {
+      "placeId": 3,
+      "name": "dfa",
+      "description": "adf",
+      "cost": "3",
+      "review": "",
+      "id": 3
+    },
+    {
+      "placeId": 3,
+      "name": "adf",
+      "description": "df",
+      "cost": "3",
+      "review": "",
+      "id": 4
+    },
+    {
+      "placeId": 3,
+      "name": "adf",
+      "description": "df",
+      "cost": "3",
+      "review": "",
+      "id": 5
+    },
+    {
+      "placeId": 3,
+      "name": "",
+      "description": "",
+      "cost": "",
+      "review": "",
+      "id": 6
+    }
+  ]
+}

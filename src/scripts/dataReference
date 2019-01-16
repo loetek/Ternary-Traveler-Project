@@ -1,0 +1,54 @@
+template for object to pass into dataCalls.connectToData() if you are doing a GET
+
+let fetchTest = {
+
+    "dataSet" : "interests",
+    "fetchType" : "GET",
+    "dataBaseObject" : "",
+    "embedItem" : "?_embed=interests"
+}
+
+template for object to pass into dataCalls.connectToData() if you are doing a POST
+
+let fetchTest2 = {
+
+    "dataSet" : "interests",
+    "fetchType" : "POST",
+    "dataBaseObject" : {
+        "id": 1, 
+        "placeId": 1,
+        "name": "Local Market",
+        "description": "Local market where you can try purchase local products and try the local food",
+        "cost": 0.00,
+        "review": "" 
+    }
+}
+
+template for object to pass into dataCalls.connectToData() if you are doing a PUT
+
+let fetchTest3 = {
+
+    "putId" : 2,
+    "dataSet" : "interests",
+    "fetchType" : "PUT",
+    "dataBaseObject" : {
+     "id": 1, 
+     "placeId": 1,
+     "name": "Local Market",
+     "description": "Local market where you can try purchase local products and try the local food",
+     "cost": 0.00,
+     "review": "" 
+    }
+}
+
+template for object to pass into dataCalls.connectToData() if you are doing a DELETE
+
+let fetchTest4 = {
+
+    "deleteId" : 2,
+    "dataSet" : "events",
+    "fetchType" : "DELETE",
+    "dataBaseObject" : {
+      "id": sessionStorage.getItem("id")
+    }
+}
