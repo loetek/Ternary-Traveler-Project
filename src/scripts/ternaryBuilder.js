@@ -24,16 +24,23 @@ import ternaryListeners from "./listener"
 
 const ternary = {
 
-    displayTernary()
-    {
+    welcome(){
+
         const output = document.querySelector("#output");
         console.log(output)
-        let mainContainer = domComponents.createDomElement({ elementType:"article",cssClass:"mainContainer", content:"MainBox" });
-        console.log(mainContainer);
-        output.appendChild(mainContainer);
-        let interestCard = domComponents.createDomElement({elementType: "article",cssClass:"interestCard", content:``, attribute:{ id: "card" }});
-        console.log(interestCard);
-    
+        let welcomeContainer = domComponents.createDomElement({ elementType:"article",cssClass:"welcomeContainer"});
+        console.log(welcomeContainer);
+        output.appendChild(welcomeContainer);
+        
+        let welcomeHeader = domComponents.createDomElement({elementType: "h1", cssClass: "h1Header",content:"Welcome and please choose from the following options." })
+        let dropDownContainer = domComponents.createDomElement({elementType: "form", cssClass:"dropDownMainContainer"});
+        let dropDownContentContainer = domComponents.createDomElement({elementType: "select", cssClass:"dropDownContentContainer", attributes:{id:"dropDown"}});
+        
+        welcomeContainer.appendChild(welcomeHeader);
+        dropDownContainer.appendChild(dropDownContentContainer);
+
+        let dropDownContentBlank = domComponents.createDomElement({elementType:"option", cssClass: "dropDownContent", content:"Choose a Shitty"})
+        dropDownContentContainer.appendChild(dropDownContentBlank);
 
         dataCalls.connectToData({
             dataSet: "places",
@@ -44,36 +51,115 @@ const ternary = {
         .then(responseInterests => {
             responseInterests.forEach(intDetails =>{
                 console.log(intDetails);
+                console.log(intDetails.name);
+                console.log(intDetails.id);
 
-                let cityContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"});
-                let cityLabel = domComponents.createDomElement({elementType:"label", cssClass:"cityLabels", content:"City"})
-                let citySection = domComponents.createDomElement({elementType:"section", cssClass:"citys", content:`${intDetails.name}`});
+                let dropDownContent = domComponents.createDomElement({elementType:"option", cssClass: "dropDownContent", content:`${intDetails.name}--${intDetails.id}`, attributes: {id:`city--${intDetails.id}` }})
 
-                //let visaContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"})
-                let visaLabel = domComponents.createDomElement({elementType:"label", cssClass:"visaLabels", content:"Visa"})
-                let visaSection = domComponents.createDomElement({elementType:"section", cssClass:"citys", content:`${intDetails.visa_required}`});
                 
-                let moveDisplayButton = domComponents.createDomElement({elementType:"button",content:"This One", cssClass:"buttons", attribute:{ id:"displayButton"}})
+                dropDownContentContainer.appendChild(dropDownContent);
+            }) 
+
+            
+            dropDownContentContainer.addEventListener("change", ternaryListeners.displayChoice);    
+            
+            welcomeContainer.appendChild(dropDownContainer);
+                 
+              
+            });
+
+    },
+
+
+    displayTernary(chosenOne)
+    {
+        console.log(chosenOne);
+        const output = document.querySelector("#output");
+       // console.log(output)
+        let mainContainer = domComponents.createDomElement({ elementType:"article",cssClass:"mainContainer", content:"MainBox" });
+       // console.log(mainContainer);
+        output.appendChild(mainContainer);
+        let interestCard = domComponents.createDomElement({elementType: "article",cssClass:"interestCard", content:``, attribute:{ id: "card" }});
+       // console.log(interestCard);
+    
+
+        dataCalls.connectToData({
+            dataSet: "places",
+            fetchType: "GET",
+            dataBaseObject: "",
+            embedItem: "?_embed=interests"
+          })
+        .then(responseInterests => {
+            responseInterests.forEach(intDetails =>{
+                console.log(intDetails.name);
+                    
+                let cityContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets", attribute:{ id:`${intDetails.id}`}, tabIndex:`${intDetails.id}` });
+                let cityLabel = domComponents.createDomElement({elementType:"label", cssClass:"labels"})
+                let citySection = domComponents.createDomElement({elementType:"section", cssClass:"citys", content:`${intDetails.name}--${intDetails.id}`});
+
+                let visaLabel = domComponents.createDomElement({elementType:"label", cssClass:"labels", content:"Do you need a Visa"})
+                let visaSection = domComponents.createDomElement({elementType:"section", cssClass:"citys", content:`${intDetails.visa_required}`});
+
                 
                 cityContainer.appendChild(cityLabel);
                 cityContainer.appendChild(citySection);
                 cityContainer.appendChild(visaLabel);
                 cityContainer.appendChild(visaSection);
-                cityContainer.appendChild(moveDisplayButton);
                 interestCard.appendChild(cityContainer);
 
-                moveDisplayButton.addEventListener("click", ternaryListeners.displayChoice);
-                //interestCard.appendChild(visaContainer);
-                for(let intGran in intDetails)
-                {
-                   console.log(intGran.interests);
+                
+            let locInterests = intDetails.interests;
+            console.log(locInterests);
+            locInterests.forEach(locIDetails =>{
 
-                }
+                let locationInterestContainer = domComponents.createDomElement({ elementType:"article", cssClass:"locationArticle", attribute:{ id:`${intDetails.id}`}});
+
+                let locNameLabel = domComponents.createDomElement({elementType:"label", cssClass:"intLabels", content:" Location Name "})
+                let locNameSection = domComponents.createDomElement({elementType:"section", cssClass:"intSections", content:`${locIDetails.name}`});
+
+                let locDescLabel = domComponents.createDomElement({elementType:"label", cssClass:"intLabels", content:" Location Description "})
+                let locDescSection = domComponents.createDomElement({elementType:"section", cssClass:"intSections", content:`${locIDetails.description}`});
+                
+                let locCostLabel = domComponents.createDomElement({elementType:"label", cssClass:"intLabels", content:" Location Cost "})
+                let locCostSection = domComponents.createDomElement({elementType:"section", cssClass:"intSections", content:`${locIDetails.cost}`});
+
+                let locRevLabel = domComponents.createDomElement({elementType:"label", cssClass:"intLabels", content:" Location Review "})
+                let locRevSection = domComponents.createDomElement({elementType:"section", cssClass:"intSections", content:`${locIDetails.review}`});
+
+                let delLocation = domComponents.createDomElement({elementType:"button", cssClass:"button", content: "Delete Entry", attributes:{ id:`delButton--${locIDetails.id}`}});
+                console.log(delLocation);
+
+                let editLocation = domComponents.createDomElement({elementType:"button", cssClass:"button", content: "Edit Entry", attributes:{ id:`editButton--${locIDetails.id}`}});
+
+
+                locationInterestContainer.appendChild(locNameLabel);
+                locationInterestContainer.appendChild(locNameSection);
+                locationInterestContainer.appendChild(locDescLabel);
+                locationInterestContainer.appendChild(locDescSection);
+                locationInterestContainer.appendChild(locCostLabel);
+                locationInterestContainer.appendChild(locCostSection);
+                locationInterestContainer.appendChild(locRevLabel);
+                locationInterestContainer.appendChild(locRevSection);
+                locationInterestContainer.appendChild(delLocation);
+                locationInterestContainer.appendChild(editLocation);
+                
+                // console.log(delLocation);
+                // console.log(editLocation);
+
+                delLocation.addEventListener("click", ternaryListeners.deleteEntry);
+                editLocation.addEventListener("click", ternaryListeners.editEntry);
+
+                cityContainer.appendChild(locationInterestContainer);
+                
             })
+            
+        
             mainContainer.appendChild(interestCard);
-        })
+        
+    
 
-      
+        })
+    })
     },
 
     createInputFields(){
@@ -85,31 +171,34 @@ const ternary = {
 
         //labels and inputs
         let nameContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"})
-        let nameLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Name: ", attributes:{ for:"name"}});
+        let nameInputLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Name: ", attributes:{ for:"name"}});
         let nameInput = domComponents.createDomElement({ elementType:"input", cssClass:"inputFields", attributes:{ type:"text", name:"nameInput", id: "nameInput" }})
-        console.log(nameLabel, nameInput);
-        nameContainer.appendChild(nameLabel);
+        console.log(nameInputLabel, nameInput);
+        nameContainer.appendChild(nameInputLabel);
         nameContainer.appendChild(nameInput);
 
         let descriptionContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"})
-        let descriptionLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Description: ", attributes:{ for:"description"}});
+        let descriptionInputLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Description: ", attributes:{ for:"description"}});
         let descriptionInput = domComponents.createDomElement({ elementType:"input", cssClass:"inputFields", attributes:{ type:"text", name:"descriptionInput", id: "descriptionInput" }})
-        console.log(descriptionLabel, descriptionInput);
-        descriptionContainer.appendChild(descriptionLabel);
+        console.log(descriptionInputLabel, descriptionInput);
+        descriptionContainer.appendChild(descriptionInputLabel);
         descriptionContainer.appendChild(descriptionInput);
 
         let costContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"})
-        let costLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Cost: ", attributes:{ for:"cost"}});
+        let costInputLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Cost: ", attributes:{ for:"cost"}});
         let costInput = domComponents.createDomElement({ elementType:"input", cssClass:"inputFields", attributes:{ type:"number", name:"costInput", id: "costInput" }})
-        console.log(costLabel, costInput);
-        costContainer.appendChild(costLabel);
+        console.log(costInputLabel, costInput);
+        costContainer.appendChild(costInputLabel);
         costContainer.appendChild(costInput);
 
         //toggle should go here.
-        let chooseCityContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"})
-        let chooseCityLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Cost: ", attributes:{ for:"cost"}});
-        let chooseCityInput = domComponents.createDomElement({ elementType:"input", cssClass:"inputFields", attributes:{ type:"number", name:"costInput", id: "costInput" }})
-        console.log(costLabel, costInput);
+        dataCalls.connectToData({
+            dataSet: "places",
+            fetchType: "GET",
+            dataBaseObject: "",
+            embedItem: "?_embed=interests"
+          })
+       
         //sve bttn
         const saveButton = domComponents.createDomElement({elementType: "button", content: "Save", attributes: {type: "button", id: "saveEvent"}});
         
@@ -123,20 +212,6 @@ const ternary = {
         return inputFields;
 
     },
-
-    citySelected(){
-        // select which city you want to highlight and edit.
-
-
-    }
-
-
-
-
-
-
-
-
 
 
 }

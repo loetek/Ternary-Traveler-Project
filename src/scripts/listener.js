@@ -7,6 +7,8 @@ const ternaryListners = {
 
     saveEntry(){
             
+        //!!!!!!!!!!! Bring in the name of the city id it will go in placeid: saveID.id!!!!!
+
             const saveID = event.target.name;
             const locName = document.querySelector("#nameInput").value;
             const locDesc = document.querySelector("#descriptionInput").value;
@@ -16,7 +18,7 @@ const ternaryListners = {
                 "dataSet": "interests",
                 "fetchType": "POST",
                 "dataBaseObject": {
-                    "placeId": 3,
+                    "placeId": saveID,
                     "name": locName,
                     "description": locDesc,
                     "cost": locCost,
@@ -26,31 +28,64 @@ const ternaryListners = {
             console.log(intObjectPost)
             dataCalls.connectToData(intObjectPost)
                 .then(response => response.json)
-                .then(newObj => {
-                    console.log(newObj)
-                    
+                .then(() => {
+                    $("#output").empty();
+                    ternary.displayTernary();
+                    ternary.createInputFields();
                 })
         },
 
     deleteEntry() {
             //To delete from saved news articles.
-            const deleteID = event.target.id.split("--")[1];
+
+        const deleteID = event.target.id.split("--")[1];
+        console.log(deleteID);
             dataCalls.connectToData({
                     deleteId: deleteID,
-                    dataSet: "newsItems",
-                    fetchType: "DELETE",
-                    
+                    dataSet: "interests",
+                    fetchType: "DELETE"
                 })
                 .then(() => {
-                    //$("").remove();
-                    //.savedNewsElementsCreator();
+                    $("#output").empty();
+                    ternary.displayTernary();
+                    ternary.createInputFields();
                 })
         },
 
+    editEntry(){
+
+        const editID = event.target.id;
+        console.log(editID);
+
+
+    },
+
     displayChoice(){
         // the item they chose will bring down and add delete buttons.
-        const choiceButton = event.target;
-        console.log(choiceButton);  
+        const choiceButton = parseInt(event.target.value.split("--")[1]);
+        console.log(choiceButton);
+
+        dataCalls.connectToData({
+            dataSet: "places",
+            fetchType: "GET",
+            dataBaseObject: "",
+            embedItem: "?_embed=interests"
+          })
+        .then(responseInterests => {
+            console.log(responseInterests);
+            responseInterests.forEach(citys => {
+               console.log(citys.id, choiceButton) 
+            
+            if (choiceButton === citys.id)
+            {
+                $("#output").empty();
+                ternary.displayTernary(choiceButton);
+                ternary.createInputFields();
+
+            } 
+                
+        });
+        });
 
     }
     

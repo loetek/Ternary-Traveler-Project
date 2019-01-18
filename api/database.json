@@ -18,14 +18,6 @@
   ],
   "interests": [
     {
-      "id": 1,
-      "placeId": 1,
-      "name": "Local Market",
-      "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": ""
-    },
-    {
       "id": 2,
       "placeId": 1,
       "name": "SPA",
@@ -35,27 +27,19 @@
     },
     {
       "placeId": 3,
-      "name": "dfa",
-      "description": "adf",
-      "cost": "3",
+      "name": "Test",
+      "description": "test",
+      "cost": "334",
       "review": "",
-      "id": 3
+      "id": 8
     },
     {
       "placeId": 3,
-      "name": "adf",
-      "description": "df",
-      "cost": "3",
+      "name": "dafdsf",
+      "description": "adfad",
+      "cost": "324",
       "review": "",
-      "id": 4
-    },
-    {
-      "placeId": 3,
-      "name": "adf",
-      "description": "df",
-      "cost": "3",
-      "review": "",
-      "id": 5
+      "id": 9
     },
     {
       "placeId": 3,
@@ -63,7 +47,31 @@
       "description": "",
       "cost": "",
       "review": "",
-      "id": 6
+      "id": 10
+    },
+    {
+      "placeId": "",
+      "name": "Test",
+      "description": "BALJADJFADF",
+      "cost": "34234234",
+      "review": "",
+      "id": 11
+    },
+    {
+      "placeId": "",
+      "name": "fdfadsf",
+      "description": "adfasdf",
+      "cost": "34234",
+      "review": "",
+      "id": 12
+    },
+    {
+      "placeId": "",
+      "name": "Test",
+      "description": "adfad",
+      "cost": "2343",
+      "review": "",
+      "id": 13
     }
   ]
 }
