@@ -18,74 +18,20 @@
   ],
   "interests": [
     {
-      "id": 1,
       "placeId": 1,
-      "name": "SPA",
-      "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": ""
-    },
-    {
-      "placeId": 1,
-      "name": "Thei",
-      "description": "adfald",
-      "cost": "343",
-      "review": "lkfjaldkfj",
-      "id": 6
+      "name": "er",
+      "description": "adf",
+      "cost": "3",
+      "review": "dfa",
+      "id": 36
     },
     {
       "placeId": 1,
-      "name": "test",
-      "description": "test",
-      "cost": "343",
-      "review": "test",
-      "id": 10
-    },
-    {
-      "placeId": 1,
-      "name": "",
-      "description": "",
-      "cost": "",
-      "review": "",
-      "id": 14
-    },
-    {
-      "placeId": 2,
-      "name": "",
-      "description": "",
-      "cost": "",
-      "review": "",
-      "id": 17
-    },
-    {
-      "id": 18,
-      "name": "UPDATE",
-      "description": "UPDATE",
-      "cost": "2",
-      "review": "UPDATE"
-    },
-    {
-      "placeId": 3,
-      "name": "",
-      "description": "",
-      "cost": "",
-      "review": "",
-      "id": 21
-    },
-    {
-      "placeId": 3,
-      "name": "",
-      "description": "",
-      "cost": "",
-      "review": "",
-      "id": 22
-    },
-    {
-      "id": 23,
-      "name": {},
-      "description": {},
-      "cost": {},
-      "review": {}
+      "name": "3243",
+      "description": "Full Teest updadte",
+      "cost": "4",
+      "review": "adf",
+      "id": 37
     }
   ]
 }
