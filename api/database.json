@@ -19,19 +19,43 @@
   "interests": [
     {
       "placeId": 1,
-      "name": "er",
-      "description": "adf",
-      "cost": "3",
-      "review": "dfa",
-      "id": 36
-    },
-    {
-      "placeId": 1,
       "name": "3243",
       "description": "Full Teest updadte",
       "cost": "4",
       "review": "adf",
       "id": 37
+    },
+    {
+      "placeId": 2,
+      "name": "fakhfkjasd",
+      "description": "vhh",
+      "cost": "-3",
+      "review": "UpdateTEst",
+      "id": 39
+    },
+    {
+      "placeId": 3,
+      "name": "three",
+      "description": "zdfdz",
+      "cost": "432.56",
+      "review": "dfgfd",
+      "id": 40
+    },
+    {
+      "placeId": 1,
+      "name": "",
+      "description": "",
+      "cost": "",
+      "review": "",
+      "id": 41
+    },
+    {
+      "placeId": 1,
+      "name": "",
+      "description": "",
+      "cost": "",
+      "review": "",
+      "id": 42
     }
   ]
 }

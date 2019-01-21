@@ -32,7 +32,7 @@ const ternaryListners = {
             const locName = document.querySelector("#nameInput").value;
             const locDesc = document.querySelector("#descriptionInput").value;
             const locCost = document.querySelector("#costInput").value;
-            const locRev = document.querySelector("#reviewInput").value;
+            //const locRev = document.querySelector("#reviewInput").value;
             console.log(locName);
 
             const intObjectPost = {
@@ -43,7 +43,7 @@ const ternaryListners = {
                     "name": locName,
                     "description": locDesc,
                     "cost": locCost,
-                    "review": locRev
+                    //"review": locRev
                 }
             }
             //console.log(intObjectPost)

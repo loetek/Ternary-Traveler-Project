@@ -170,12 +170,12 @@ const ternary = {
                 costContainer.appendChild(costInputLabel);
                 costContainer.appendChild(costInput);
 
-                let reviewContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"})
-                let reviewInputLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Review: ", attributes:{ for:"review"}});
-                let reviewInput = domComponents.createDomElement({ elementType:"input", cssClass:"inputFields", attributes:{ type:"text", name:"reviewInput", id: "reviewInput" }})
+                // let reviewContainer = domComponents.createDomElement({ elementType:"fieldset", cssClass:"fieldsets"})
+                // let reviewInputLabel = domComponents.createDomElement({ elementType:"label", cssClass:"inputLabels", content:"Review: ", attributes:{ for:"review"}});
+                // let reviewInput = domComponents.createDomElement({ elementType:"input", cssClass:"inputFields", attributes:{ type:"text", name:"reviewInput", id: "reviewInput" }})
                 //console.log(reviewInputLabel, reviewInput);
-                reviewContainer.appendChild(reviewInputLabel);
-                reviewContainer.appendChild(reviewInput);
+                // reviewContainer.appendChild(reviewInputLabel);
+                // reviewContainer.appendChild(reviewInput);
 
 
         //sve bttn
@@ -184,7 +184,7 @@ const ternary = {
             inputFields.appendChild(nameContainer);
             inputFields.appendChild(descriptionContainer);
             inputFields.appendChild(costContainer);
-            inputFields.appendChild(reviewContainer);
+           // inputFields.appendChild(reviewContainer);
             inputFields.appendChild(saveButton);
             mainContainer.appendChild(inputFields);
 
