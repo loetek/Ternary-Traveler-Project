@@ -1,5 +1,5 @@
 import ternary from "./ternaryBuilder";
 
-
-ternary.displayTernary();
-ternary.createInputFields();
+ternary.welcome();
+//ternary.displayTernary();
+//ternary.createInputFields();

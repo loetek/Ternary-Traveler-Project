@@ -8,7 +8,7 @@
     {
       "id": 2,
       "name": "Panama City",
-      "visa_required": false
+      "visa_required": true
     },
     {
       "id": 3,
@@ -18,52 +18,44 @@
   ],
   "interests": [
     {
-      "id": 1,
       "placeId": 1,
-      "name": "Local Market",
-      "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": ""
+      "name": "3243",
+      "description": "Full Teest updadte",
+      "cost": "4",
+      "review": "adf",
+      "id": 37
     },
     {
-      "id": 2,
+      "placeId": 2,
+      "name": "fakhfkjasd",
+      "description": "vhh",
+      "cost": "-3",
+      "review": "UpdateTEst",
+      "id": 39
+    },
+    {
+      "placeId": 3,
+      "name": "three",
+      "description": "zdfdz",
+      "cost": "432.56",
+      "review": "dfgfd",
+      "id": 40
+    },
+    {
       "placeId": 1,
-      "name": "SPA",
-      "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": ""
-    },
-    {
-      "placeId": 3,
-      "name": "dfa",
-      "description": "adf",
-      "cost": "3",
-      "review": "",
-      "id": 3
-    },
-    {
-      "placeId": 3,
-      "name": "adf",
-      "description": "df",
-      "cost": "3",
-      "review": "",
-      "id": 4
-    },
-    {
-      "placeId": 3,
-      "name": "adf",
-      "description": "df",
-      "cost": "3",
-      "review": "",
-      "id": 5
-    },
-    {
-      "placeId": 3,
       "name": "",
       "description": "",
       "cost": "",
       "review": "",
-      "id": 6
+      "id": 41
+    },
+    {
+      "placeId": 1,
+      "name": "",
+      "description": "",
+      "cost": "",
+      "review": "",
+      "id": 42
     }
   ]
 }
